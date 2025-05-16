@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scaleType="centerCrop"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_splash" >
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="25dp"
+        android:src="@drawable/logo_splash"
+        android:contentDescription="@string/APP_description_logo" />
+
+    <!-- Flex Space (this will push the buttons down) -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_primary_button"
+        android:textColor="@color/button_text"
+        android:text="@string/FORM_login"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="true" />
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/FORM_register"
+        android:background="@drawable/bg_secondary_button"
+        android:textColor="@color/button_text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="true" />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_layout" />
+</LinearLayout>

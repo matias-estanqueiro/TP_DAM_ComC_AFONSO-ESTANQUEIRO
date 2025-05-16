@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scaleType="centerCrop"
+    android:id="@+id/register_class"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/app_background" >
+
+    <!-- Header -->
+    <com.example.gymapp.HeaderLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Card Register Activity -->
+    <Button
+        android:id="@+id/cardRegisterClass"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:drawableStart="?attr/register_activity_icon"
+        android:background="@drawable/bg_card"
+        android:text="@string/CARD_activity"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:enabled="false" />
+
+    <!-- Flex Space (this will push the buttons down) -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Activity Name -->
+    <TextView
+        android:id="@+id/lblClassName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:text="@string/FORM_class_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:labelFor="@id/inpClassName"/>
+
+    <EditText
+        android:id="@+id/inpClassName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:paddingHorizontal="5dp"
+        android:backgroundTint="@color/input_underline"
+        android:layout_marginBottom="24dp"
+        android:inputType="text"
+        android:autofillHints="false" />
+
+    <!-- Activity Value -->
+    <TextView
+        android:id="@+id/lblClasValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:text="@string/FORM_class_value"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:labelFor="@id/inpClassValue"/>
+
+    <EditText
+        android:id="@+id/inpClassValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:paddingHorizontal="5dp"
+        android:backgroundTint="@color/input_underline"
+        android:inputType="number"
+        android:autofillHints="false" />
+
+    <!-- Flex Space (this will push the buttons down) -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_primary_button"
+        android:textColor="@color/button_text"
+        android:text="@string/FORM_register"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Footer -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_layout" />
+</LinearLayout>

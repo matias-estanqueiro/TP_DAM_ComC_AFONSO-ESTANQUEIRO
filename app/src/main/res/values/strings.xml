@@ -1,0 +1,54 @@
+<resources>
+    <string name="APP_name" translatable="false">Fitness Sports</string>
+    <string name="APP_log_out">Log Out</string>
+    <string name="APP_home">Home</string>
+
+    <string name="APP_description_logo">Fitness Sports Logo</string>
+    <string name="APP_description_stepper_one">First Step of RegisterClient Form</string>
+    <string name="APP_description_stepper_two">Second Step of RegisterClient Form</string>
+    <string name="APP_description_stepper_three">Third Step of RegisterClient Form</string>
+
+    <string name="FOOTER_content" translatable="false">2025 - Mobile Application Development - IFTS N°29</string>
+
+    <string name="FORM_login">Login</string>
+    <string name="FORM_register">Register</string>
+    <string name="FORM_search">Search</string>
+    <string name="FORM_back">Back</string>
+    <string name="FORM_next">Next</string>
+    <string name="FORM_email">Send E-mail</string>
+
+    <string name="FORM_user">Email:</string>
+    <string name="FORM_password">Password:</string>
+    <string name="FORM_confirm_password">Confirm Password:</string>
+
+    <string name="FORM_class_name">Activity:</string>
+    <string name="FORM_class_value">Value ($):</string>
+
+    <string name="FORM_client_fitness_certificate">¿Fitness Certificate?</string>
+    <string name="FORM_client_dni">DNI:</string>
+    <string name="FORM_client_name">Name:</string>
+    <string name="FORM_client_surname">Surname:</string>
+    <string name="FORM_client_street">Street:</string>
+    <string name="FORM_client_number">Number:</string>
+    <string name="FORM_client_district">District:</string>
+    <string name="FORM_client_phone">Phone Number:</string>
+    <string name="FORM_client_email">E-mail:</string>
+    <string name="FORM_client_member">Member</string>
+    <string name="FORM_client_client">Client</string>
+
+    <string name="FORM_payment_monthly_plan">Monthly Plan:</string>
+    <string name="FORM_payment_type">Payment Type:</string>
+    <string name="FORM_payment_three_payments">Quarterly (3)</string>
+    <string name="FORM_payment_six_payments">Biannual (6)</string>
+    <string name="FORM_payment_class">Activity:</string>
+
+    <string name="CARD_client">Register \nClient</string>
+    <string name="CARD_payment">Register \nPayment</string>
+    <string name="CARD_activity">Register \nActivity</string>
+    <string name="CARD_id_card">View ID \nCard</string>
+    <string name="CARD_pending_payment">Pending \nPayments</string>
+
+    <string name="VOUCHER_plan">Plan:</string>
+    <string name="VOUCHER_year">Year:</string>
+
+</resources>

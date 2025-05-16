@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="app_background" format="reference" />
+
+    <attr name="log_out_icon" format="reference" />
+    <attr name="register_client_icon" format="reference" />
+    <attr name="register_payment_icon" format="reference" />
+    <attr name="register_activity_icon" format="reference" />
+    <attr name="view_id_card_icon" format="reference" />
+    <attr name="pending_payments_icon" format="reference" />
+    <attr name="home_icon" format="reference" />
+    <attr name="not_member_photo" format="reference" />
+
+    <attr name="stepper_form_one" format="reference" />
+    <attr name="stepper_form_two" format="reference" />
+    <attr name="stepper_form_three" format="reference" />
+</resources>

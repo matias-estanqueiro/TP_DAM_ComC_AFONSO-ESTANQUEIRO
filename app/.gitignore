@@ -1,0 +1,61 @@
+# === Archivos generados por Android Studio / Gradle ===
+.gradle/
+.idea/
+*.iml
+local.properties
+/.gradle/
+/build/
+/captures/
+/.externalNativeBuild/
+
+# === Archivos de ejecución o sistema ===
+*.apk
+*.ap_
+*.db
+*.log
+*.swp
+*.DS_Store
+*.so
+*.class
+*.jar
+
+# === Configuraciones personales ===
+/*.jks
+*.keystore
+*.pem
+*.key
+*.crt
+
+# === Archivos temporales y de sistema ===
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# === Configuración de entorno ===
+.env
+.env.*
+
+# === Firebase, Google Services, etc. ===
+google-services.json
+app/google-services.json
+firebase-service-account.json
+
+# === Visual Studio Code (si usás VSCode) ===
+.vscode/
+
+# === IntelliJ / Android Studio ===
+.idea/
+*.ipr
+*.iws
+
+# === Fastlane ===
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
+
+# === Nombres de carpetas comunes a evitar ===
+/output/
+/bin/
+/gen/
+/obj/

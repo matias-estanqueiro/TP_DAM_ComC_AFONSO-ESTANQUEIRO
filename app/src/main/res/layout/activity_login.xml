@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scaleType="centerCrop"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/background" >
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginEnd="16dp"
+            android:src="?attr/logo"
+            android:contentDescription="@string/APP_description_logo" />
+
+        <!-- Flex Space (this will push the buttons down) -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- User -->
+        <TextView
+            android:id="@+id/lblUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_user"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpUserEmail"/>
+
+        <EditText
+            android:id="@+id/inpUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress" />
+
+        <!-- Password -->
+        <TextView
+            android:id="@+id/lblUserPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_password"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpUserPassword" />
+
+        <EditText
+            android:id="@+id/inpUserPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="textPassword"
+            android:autofillHints="password" />
+
+        <!-- Form Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">
+
+                <!-- Back to Splash -->
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_secondary_button"
+                    android:textColor="@color/button_text"
+                    android:text="@string/FORM_back"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true" />
+
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <!-- Login -->
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_accent_button"
+                    android:text="@string/FORM_login"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Footer -->
+        <include
+            android:id="@+id/footer"
+            layout="@layout/footer_layout" />
+</LinearLayout>

@@ -1,0 +1,18 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:alpha="0.8"
+    android:layout_marginTop="20dp"
+    android:padding="5dp">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/FOOTER_content"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    android:gravity="center" />
+</FrameLayout>

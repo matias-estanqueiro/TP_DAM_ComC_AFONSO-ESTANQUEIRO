@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scaleType="centerCrop"
+    android:id="@+id/register_payment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/app_background" >
+
+    <!-- Header -->
+    <com.example.gymapp.HeaderLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Register Payment -->
+    <Button
+        android:id="@+id/btnRegisterPayment"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="?attr/register_payment_icon"
+        android:background="@drawable/bg_card"
+        android:text="@string/CARD_payment"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:enabled="false" />
+
+    <!-- Client membership -->
+    <RadioGroup
+        android:id="@+id/rdgSelectClient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="8dp">
+
+        <!-- Member -->
+        <RadioButton
+            android:id="@+id/rdbPaymentMember"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/FORM_client_member"
+            android:textSize="24sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:buttonTint="?attr/android:textColor"
+            android:textColor="?attr/android:textColor" />
+
+        <!-- Flex Space -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Client -->
+        <RadioButton
+            android:id="@+id/rdbPaymentClient"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/FORM_client_client"
+            android:textSize="24sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:buttonTint="?attr/android:textColor"
+            android:textColor="?attr/android:textColor" />
+    </RadioGroup>
+
+    <!-- Flex Space -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Member Payment Form -->
+    <LinearLayout
+        android:id="@+id/frmPaymentMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <!-- Member DNI -->
+        <TextView
+            android:id="@+id/lblMemberDni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_client_dni"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpMemberDni" />
+
+        <EditText
+            android:id="@+id/inpMemberDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="number"
+            android:autofillHints="false" />
+
+        <!-- Member Monthly Plan -->
+        <TextView
+            android:id="@+id/lblMonthlyPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_payment_monthly_plan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/spnMonthlyPlan" />
+
+        <Spinner
+            android:id="@+id/spnMonthlyPlan"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/input_underline"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/input_underline"
+            android:layout_marginHorizontal="32dp" />
+
+        <!-- Member Payment Type -->
+        <TextView
+            android:id="@+id/lblPaymentType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_payment_type"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/spnPaymentType" />
+
+        <Spinner
+            android:id="@+id/spnPaymentType"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/input_underline"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/input_underline"
+            android:layout_marginHorizontal="32dp" />
+
+        <!-- Member Payment Installments -->
+        <RadioGroup
+            android:id="@+id/rdgPaymentInstallments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="16dp" >
+
+            <!-- Quarterly -->
+            <RadioButton
+                android:id="@+id/rdbThreePayments"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/FORM_payment_three_payments"
+                android:textSize="24sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:buttonTint="?attr/android:textColor"
+                android:textColor="?attr/android:textColor" />
+
+            <!-- Biannual -->
+            <RadioButton
+                android:id="@+id/rdbSixPayments"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/FORM_payment_six_payments"
+                android:textSize="24sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:buttonTint="?attr/android:textColor"
+                android:textColor="?attr/android:textColor" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- Client Payment Form -->
+    <LinearLayout
+        android:id="@+id/frmPaymentClient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="" >
+
+        <!-- Client DNI -->
+        <TextView
+            android:id="@+id/lblClientDni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_client_dni"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpClientDni" />
+
+        <EditText
+            android:id="@+id/inpClientDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="number"
+            android:autofillHints="false" />
+
+        <!-- Client Class (Activity) -->
+        <TextView
+            android:id="@+id/lblClientClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_payment_class"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/spnClientClass" />
+
+        <Spinner
+            android:id="@+id/spnClientClass"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/input_underline"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/input_underline"
+            android:layout_marginHorizontal="32dp" />
+    </LinearLayout>
+
+    <!-- Flex Space -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_primary_button"
+        android:textColor="@color/button_text"
+        android:text="@string/FORM_next"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Footer -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_layout" />
+</LinearLayout>

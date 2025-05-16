@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="top"
+        android:layout_marginTop="24dp"
+        android:padding="5dp" >
+
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="?attr/home_icon"
+        android:layout_gravity="start"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/APP_home"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:text="@string/APP_name"
+        android:textColor="?attr/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/btnLogOut"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="?attr/log_out_icon"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/APP_log_out"
+        android:padding="8dp" />
+</LinearLayout>

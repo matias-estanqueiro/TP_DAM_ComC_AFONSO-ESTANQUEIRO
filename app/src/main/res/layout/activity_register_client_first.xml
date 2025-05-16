@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:scaleType="centerCrop"
+    android:id="@+id/register_client_first"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/app_background" >
+
+    <!-- Header -->
+    <com.example.gymapp.HeaderLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Card Register Client -->
+    <Button
+        android:id="@+id/cardRegisterClient"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:drawableStart="?attr/register_client_icon"
+        android:background="@drawable/bg_card"
+        android:text="@string/CARD_client"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:enabled="false" />
+
+    <!-- Stepper -->
+    <ImageView
+        android:id="@+id/imgStepperOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="32dp"
+        android:src="?attr/stepper_form_one"
+        android:contentDescription="@string/APP_description_stepper_one" />
+
+    <!-- Check Fitness Certificate -->
+    <CheckBox
+        android:id="@+id/chkFitnessCertificate"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:layout_marginBottom="48dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/FORM_client_fitness_certificate"
+        android:textColor="?attr/android:textColor"
+        android:buttonTint="?attr/android:textColor"
+        android:textSize="24sp" />
+
+    <!-- Register Client Form -->
+    <LinearLayout
+        android:id="@+id/frmClientRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <!-- DNI -->
+        <TextView
+            android:id="@+id/lblClientDni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_client_dni"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpClientDni" />
+
+        <EditText
+            android:id="@+id/inpClientDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="number"
+            android:autofillHints="false" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/lblClientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_client_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpClientName" />
+
+        <EditText
+            android:id="@+id/inpClientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="text"
+            android:autofillHints="name" />
+
+        <!-- Surname -->
+        <TextView
+            android:id="@+id/lblClientSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/FORM_client_surname"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/inpClientSurname" />
+
+        <EditText
+            android:id="@+id/inpClientSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:paddingHorizontal="5dp"
+            android:backgroundTint="@color/input_underline"
+            android:inputType="text"
+            android:autofillHints="name" />
+    </LinearLayout>
+
+    <!-- Flex Space (this will push the buttons down) -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_primary_button"
+        android:textColor="@color/button_text"
+        android:text="@string/FORM_next"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:enabled="false" />
+
+    <!-- Footer -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_layout" />
+</LinearLayout>

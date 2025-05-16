@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GymApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Colors -->
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorSecondary">@color/light_secondary</item>
+        <item name="android:textColor">@color/light_text_primary</item>
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="colorAccent">@color/light_accent</item>
+
+        <!-- Font -->
+        <item name="android:fontFamily">@font/titillium_web_bold</item>
+
+        <!-- Background App Image -->
+        <item name="background">@drawable/bg_login_register_light</item>
+        <item name="app_background">@drawable/bg_app_light</item>
+
+        <!-- Logo -->
+        <item name="logo">@drawable/logo_login_register_light</item>
+
+        <!-- Icons -->
+        <item name="log_out_icon">@drawable/ic_log_out_light</item>
+        <item name="register_client_icon">@drawable/ic_add_client_light</item>
+        <item name="register_payment_icon">@drawable/ic_add_payment_light</item>
+        <item name="register_activity_icon">@drawable/ic_add_activity_light</item>
+        <item name="view_id_card_icon">@drawable/ic_id_card_light</item>
+        <item name="pending_payments_icon">@drawable/ic_pending_payment_light</item>
+        <item name="home_icon">@drawable/ic_home_light</item>
+        <item name="not_member_photo">@drawable/ic_not_member_photo_light</item>
+
+        <!-- Form Steppers -->
+        <item name="stepper_form_one">@drawable/img_stepper_page_one_light</item>
+        <item name="stepper_form_two">@drawable/img_stepper_page_two_light</item>
+        <item name="stepper_form_three">@drawable/img_stepper_page_three_light</item>
+    </style>
+    <style name="Theme.GymApp" parent="Base.Theme.GymApp" />
+</resources>
