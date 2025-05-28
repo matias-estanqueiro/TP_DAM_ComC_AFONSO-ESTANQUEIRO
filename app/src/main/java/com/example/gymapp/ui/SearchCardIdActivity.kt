@@ -1,23 +1,25 @@
-package com.example.gymapp
+package com.example.gymapp.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.gymapp.R
 
 import com.example.gymapp.utils.setupNavigation
 
-class ViewPendingPaymentsActivity : AppCompatActivity() {
+class SearchCardIdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_view_pending_payments)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.view_pending_payments)) { v, insets ->
+        setContentView(R.layout.activity_search_card_id)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.search_card_id)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setupNavigation(findViewById(R.id.btnSearch), ViewIdActivity::class.java)
     }
 }

@@ -17,4 +17,7 @@
 
     <color name="button_text">#000000</color>
     <color name="input_underline">#000000</color>
+
+    <color name="color_success">#4CAF50</color>
+    <color name="color_error">#F44336</color>
 </resources>

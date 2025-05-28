@@ -1,4 +1,4 @@
-package com.example.gymapp
+package com.example.gymapp.ui
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import com.example.gymapp.MainActivity
+import com.example.gymapp.R
 
 class HeaderLayout @JvmOverloads constructor(
     context: Context,

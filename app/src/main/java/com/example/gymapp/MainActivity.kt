@@ -8,6 +8,8 @@ import androidx.core.view.WindowInsetsCompat
 
 import android.content.Intent
 import android.widget.Button
+import com.example.gymapp.ui.LoginActivity
+import com.example.gymapp.ui.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

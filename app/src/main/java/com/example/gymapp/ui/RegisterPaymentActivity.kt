@@ -1,4 +1,4 @@
-package com.example.gymapp
+package com.example.gymapp.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +10,7 @@ import com.example.gymapp.utils.setupNavigation
 import android.widget.LinearLayout
 import android.widget.RadioGroup
 import android.view.View
+import com.example.gymapp.R
 
 class RegisterPaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

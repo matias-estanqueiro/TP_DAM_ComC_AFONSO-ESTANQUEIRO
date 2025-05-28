@@ -3,6 +3,12 @@
     <string name="APP_log_out">Log Out</string>
     <string name="APP_home">Home</string>
 
+    <string name="APP_login_required_validation">All fields are required</string>
+    <string name="APP_login_password_length_validation">The password must be longer than 8 characters</string>
+    <string name="APP_login_password_validation">Incorrect password</string>
+    <string name="APP_login_invalid_email">Invalid email format</string>
+    <string name="APP_login_email_validation">The email entered is not registered</string>
+
     <string name="APP_description_logo">Fitness Sports Logo</string>
     <string name="APP_description_stepper_one">First Step of RegisterClient Form</string>
     <string name="APP_description_stepper_two">Second Step of RegisterClient Form</string>
@@ -50,5 +56,9 @@
 
     <string name="VOUCHER_plan">Plan:</string>
     <string name="VOUCHER_year">Year:</string>
+
+    <string name="msg_success">Action completed successfully!</string>
+    <string name="msg_error">An unexpected error occurred</string>
+    <string name="app_icon">Message Icon</string>
 
 </resources>

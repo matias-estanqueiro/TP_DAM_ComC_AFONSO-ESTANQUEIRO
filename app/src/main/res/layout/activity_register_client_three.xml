@@ -9,7 +9,7 @@
     android:background="?attr/app_background" >
 
     <!-- Header -->
-    <com.example.gymapp.HeaderLayout
+    <com.example.gymapp.ui.HeaderLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

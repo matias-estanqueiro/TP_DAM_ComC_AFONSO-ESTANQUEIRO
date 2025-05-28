@@ -1,4 +1,4 @@
-package com.example.gymapp
+package com.example.gymapp.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +11,7 @@ import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.view.View
 import android.widget.Button
+import com.example.gymapp.R
 
 class RegisterClientFirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
