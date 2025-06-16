@@ -19,6 +19,8 @@ class RegisterClassActivity : AppCompatActivity() {
             insets
         }
 
+
+
         setupNavigation(findViewById(R.id.btnRegister), DashboardActivity::class.java)
     }
 }

@@ -3,11 +3,18 @@
     <string name="APP_log_out">Log Out</string>
     <string name="APP_home">Home</string>
 
-    <string name="APP_login_required_validation">All fields are required</string>
-    <string name="APP_login_password_length_validation">The password must be longer than 8 characters</string>
-    <string name="APP_login_password_validation">Incorrect password</string>
-    <string name="APP_login_invalid_email">Invalid email format</string>
-    <string name="APP_login_email_validation">The email entered is not registered</string>
+    <string name="APP_required_validation">All fields are required</string>
+    <string name="APP_password_length_validation">The password must be longer than 8 characters</string>
+    <string name="APP_email_validation">Invalid email format</string>
+
+    <string name="APP_login_success">Successful login. Welcome to Fitness Sports!</string>
+    <string name="APP_login_error">Incorrect email or password</string>
+
+    <string name="APP_register_email_validation">The email entered is registered</string>
+    <string name="APP_register_equal_password">Both passwords must match</string>
+    <string name="APP_register_error">Error registering new user. Please try again</string>
+    <string name="APP_register_success">Successful registration. Welcome to Fitness Sports!</string>
+
 
     <string name="APP_description_logo">Fitness Sports Logo</string>
     <string name="APP_description_stepper_one">First Step of RegisterClient Form</string>
