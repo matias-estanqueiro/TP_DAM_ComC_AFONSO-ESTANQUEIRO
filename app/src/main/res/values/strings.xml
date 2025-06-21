@@ -15,6 +15,13 @@
     <string name="APP_register_error">Error registering new user. Please try again</string>
     <string name="APP_register_success">Successful registration. Welcome to Fitness Sports!</string>
 
+    <string name="CLIENT_register_error">The DNI entered is registered</string>
+    <string name="CLIENT_dni_validation">The DNI entered is not valid</string>
+    <string name="CLIENT_name_validation">Name and Surname can only contain letters and spaces</string>
+    <string name="CLIENT_street_number_validation">Street Number can only contain numbers</string>
+    <string name="CLIENT_district_validation">District can only contain letters and spaces"</string>
+    <string name="CLIENT_phone_validation">Phone can only contain numbers</string>
+    <string name="CLIENT_registration_error">Error registering new client. Please try again</string>
 
     <string name="APP_description_logo">Fitness Sports Logo</string>
     <string name="APP_description_stepper_one">First Step of RegisterClient Form</string>

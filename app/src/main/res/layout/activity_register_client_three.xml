@@ -108,7 +108,8 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:buttonTint="?attr/android:textColor"
-            android:textColor="?attr/android:textColor" />
+            android:textColor="?attr/android:textColor"
+            android:checked="true" />
 
         <!-- Flex Space -->
         <Space

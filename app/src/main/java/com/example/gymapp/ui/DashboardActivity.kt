@@ -27,6 +27,7 @@ class DashboardActivity : AppCompatActivity() {
         val incomingIntent = intent
         handleIncomingMessage(incomingIntent, LoginActivity.LOGIN_SUCCESS_MESSAGE)
         handleIncomingMessage(incomingIntent, RegisterActivity.REGISTER_SUCCESS_MESSAGE)
+        handleIncomingMessage(incomingIntent,  RegisterClientThreeActivity.REGISTER_SUCCESS_MESSAGE)
 
         setupNavigation(findViewById(R.id.btnRegisterClient), RegisterClientFirstActivity::class.java)
         setupNavigation(findViewById(R.id.btnRegisterPayment), RegisterPaymentActivity::class.java)
