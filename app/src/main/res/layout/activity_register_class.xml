@@ -20,6 +20,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:drawableStart="?attr/register_activity_icon"
         android:background="@drawable/bg_card"
         android:text="@string/CARD_activity"
@@ -28,13 +29,6 @@
         android:textAllCaps="false"
         android:enabled="false" />
 
-    <!-- Flex Space (this will push the buttons down) -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp" />
 
     <!-- Activity Name -->
     <TextView
@@ -43,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:text="@string/FORM_class_name"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         android:labelFor="@id/inpClassName"/>
@@ -66,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:text="@string/FORM_class_value"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp"
         android:labelFor="@id/inpClassValue"/>
@@ -81,14 +75,6 @@
         android:inputType="number"
         android:autofillHints="false" />
 
-    <!-- Flex Space (this will push the buttons down) -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp" />
-
     <!-- Register Button -->
     <Button
         android:id="@+id/btnRegister"
@@ -96,13 +82,35 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="36dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg_primary_button"
         android:textColor="@color/button_text"
-        android:text="@string/FORM_register"
+        android:text="@string/ACTIVITY_register"
         android:textAllCaps="true"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/FORM_class_list"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lstActivities"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="8dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:clipToPadding="false" />
 
     <!-- Footer -->
     <include

@@ -12,7 +12,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // Database tables structure definitions
     companion object {
         private const val DATABASE_NAME = "fitnessSports.db"
-        private const val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 4
 
         // Users Table
         const val TABLE_USERS = "users"
@@ -50,6 +50,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         const val COLUMN_CLIENT_EMAIL = "email"
         // 0 => client; 1 => member
         const val COLUMN_CLIENT_TYPE = "type"
+        const val COLUMN_CLIENT_PLAN = "membership_id"
 
         // Membership Payments Table
         const val TABLE_MEMBERSHIPS_PAYMENTS = "payments_memberships"
@@ -81,7 +82,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val createActivitiesTable = """
             CREATE TABLE $TABLE_ACTIVITIES (
                 $COLUMN_ACTIVITY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $COLUMN_ACTIVITY_NAME TEXT NOT NULL,
+                $COLUMN_ACTIVITY_NAME TEXT UNIQUE NOT NULL,
                 $COLUMN_ACTIVITY_PRICE INTEGER NOT NULL
             )""".trimIndent()
 
@@ -109,7 +110,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 $COLUMN_CLIENT_DISTRICT TEXT,
                 $COLUMN_CLIENT_PHONE TEXT,
                 $COLUMN_CLIENT_EMAIL TEXT UNIQUE,
-                $COLUMN_CLIENT_TYPE INTEGER NOT NULL
+                $COLUMN_CLIENT_TYPE INTEGER NOT NULL,
+                $COLUMN_CLIENT_PLAN INTEGER NOT NULL,
+                FOREIGN KEY($COLUMN_CLIENT_PLAN) REFERENCES $TABLE_MEMBERSHIPS($COLUMN_MEMBERSHIP_ID)
             )""".trimIndent()
 
         val createPaymentsMembershipsTable = """
@@ -171,6 +174,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         //Memberships
         val memberships : List<Pair<String,Int>> = listOf(
+            Pair("NO PLAN", 0),
             Pair("BRONZE", 35000),
             Pair("SILVER", 45000),
             Pair("GOLD", 55000),
@@ -205,6 +209,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put(COLUMN_CLIENT_PHONE, "5703588965")
             put(COLUMN_CLIENT_EMAIL, "john_kingsly@gmail.com")
             put(COLUMN_CLIENT_TYPE, 0)
+            put(COLUMN_CLIENT_PLAN, 1)
         }
 
         val memberData = ContentValues().apply {
@@ -217,6 +222,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put(COLUMN_CLIENT_PHONE, "8308470377")
             put(COLUMN_CLIENT_EMAIL, "colver_ring@gmail.com")
             put(COLUMN_CLIENT_TYPE, 1)
+            put(COLUMN_CLIENT_PLAN, 5)
         }
         db.insert(TABLE_CLIENTS, null, clientData)
         db.insert(TABLE_CLIENTS, null, memberData)

@@ -21,7 +21,7 @@ import com.example.gymapp.R
 import com.example.gymapp.data.DaoClient
 import com.example.gymapp.data.DtClient
 import com.example.gymapp.ui.RegisterClientFirstActivity.Companion.CLIENT_DATA
-import com.example.gymapp.utils.RegistrationResult
+import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.showCustomSnackbar
 import com.example.gymapp.utils.isValidOnlyNumbers
@@ -131,32 +131,36 @@ class RegisterClientThreeActivity : AppCompatActivity() {
             currentClient.phone = clientPhone
             currentClient.email = clientEmail
             currentClient.type = clientType
+            if (clientType == 0) {
+                currentClient.plan = 1
+            } else {
+                currentClient.plan = 5
+            }
 
             CoroutineScope(Dispatchers.IO).launch {
-                val registrationResult = clientDao.registerClient(currentClient)
+                val actionResult = clientDao.registerClient(currentClient)
                 withContext(Dispatchers.Main) {
-                    when (registrationResult) {
-                        RegistrationResult.SUCCESS -> {
-                            val intent = Intent(this@RegisterClientThreeActivity, DashboardActivity::class.java).apply {
-                                putExtra(REGISTER_SUCCESS_MESSAGE, R.string.APP_register_success)
+                    when (actionResult) {
+                        ActionResult.SUCCESS -> {
+                            val intent = Intent(this@RegisterClientThreeActivity, RegisterClientFirstActivity::class.java).apply {
+                                putExtra(REGISTER_SUCCESS_MESSAGE, actionResult.messageResId)
                             }
                             startActivity(intent)
                             finish()
                         }
-                        RegistrationResult.EMAIL_EXISTS -> {
-                            showCustomSnackbar(this@RegisterClientThreeActivity, registrationResult.messageResId, SnackbarType.ERROR)
+                        ActionResult.ERROR -> {
+                            showCustomSnackbar(this@RegisterClientThreeActivity, actionResult.messageResId, SnackbarType.ERROR)
                             return@withContext
                         }
-                        RegistrationResult.DNI_EXISTS -> {
-                            showCustomSnackbar(this@RegisterClientThreeActivity, registrationResult.messageResId, SnackbarType.ERROR)
+                        ActionResult.DATA_EXISTS -> {
+                            showCustomSnackbar(this@RegisterClientThreeActivity, actionResult.messageResId, SnackbarType.ERROR)
                             return@withContext
                         }
-
-                        RegistrationResult.DB_ERROR -> {
-                            showCustomSnackbar(this@RegisterClientThreeActivity, registrationResult.messageResId, SnackbarType.ERROR)
-                            return@withContext
+                        ActionResult.NOT_FOUND -> {
+                            showCustomSnackbar(this@RegisterClientThreeActivity, actionResult.messageResId, SnackbarType.ERROR)
                         }
                     }
+
                 }
             }
         }

@@ -2,7 +2,7 @@ package com.example.gymapp.data
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
-import com.example.gymapp.utils.RegistrationResult
+import com.example.gymapp.utils.ActionResult
 
 import com.example.gymapp.data.DatabaseHelper.Companion.TABLE_USERS
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_USER_ID
@@ -17,9 +17,9 @@ class DaoUser(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteDat
      * @param hashedPassword The hashed password of the new user.
      * @return A success or error message.
      */
-    fun registerUser(email: String, hashedPassword: String): RegistrationResult {
+    fun registerUser(email: String, hashedPassword: String): ActionResult {
         if (checkUserEmail(email)) {
-            return RegistrationResult.EMAIL_EXISTS
+            return ActionResult.DATA_EXISTS
         }
 
         val values = ContentValues().apply {
@@ -28,9 +28,9 @@ class DaoUser(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteDat
         }
         val newRowId = dbWrite.insert(TABLE_USERS, null, values)
         return if (newRowId != -1L) {
-            RegistrationResult.SUCCESS
+            ActionResult.SUCCESS
         } else {
-            RegistrationResult.DB_ERROR
+            ActionResult.ERROR
         }
     }
 

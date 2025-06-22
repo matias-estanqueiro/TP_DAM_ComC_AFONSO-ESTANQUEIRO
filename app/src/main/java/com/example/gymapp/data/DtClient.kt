@@ -6,8 +6,15 @@ import android.os.Parcelable
 data class DtClient (
     var dni: String? = null, var name: String? = null, var surname: String? = null, var street: String? = null,
     var streetNumber: String? = null, var district: String? = null, var phone: String? = null,
-    var email: String? = null, var type: Int = 0
+    var email: String? = null, var type: Int = 0, var plan: Int = 0, var planName: String? = null
 ) : Parcelable {
+    init {
+        this.name = name?.uppercase()
+        this.surname = surname?.uppercase()
+        this.street = street?.uppercase()
+        this.district = district?.uppercase()
+        this.planName = planName?.uppercase()
+    }
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -17,7 +24,9 @@ data class DtClient (
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readInt()
+        parcel.readInt(),
+        parcel.readInt(),
+        parcel.readString()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -30,6 +39,8 @@ data class DtClient (
         parcel.writeString(phone)
         parcel.writeString(email)
         parcel.writeInt(type)
+        parcel.writeInt(plan)
+        parcel.writeString(planName)
     }
 
     override fun describeContents(): Int {

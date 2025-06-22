@@ -14,4 +14,7 @@
     <attr name="stepper_form_one" format="reference" />
     <attr name="stepper_form_two" format="reference" />
     <attr name="stepper_form_three" format="reference" />
+
+    <attr name="edit_activity" format="reference" />
+    <attr name="delete_activity" format="reference" />
 </resources>

@@ -3,19 +3,19 @@
     <string name="APP_log_out">Log Out</string>
     <string name="APP_home">Home</string>
 
+    <string name="APP_success">The action was carried out successfully!</string>
+    <string name="APP_error">The action could not be carried out. Try again</string>
+    <string name="APP_not_found">The object was not found. Try again</string>
+    <string name="APP_data_exists">The data entered are already registered.</string>
+
     <string name="APP_required_validation">All fields are required</string>
     <string name="APP_password_length_validation">The password must be longer than 8 characters</string>
     <string name="APP_email_validation">Invalid email format</string>
+    <string name="APP_register_equal_password">Both passwords must match</string>
 
     <string name="APP_login_success">Successful login. Welcome to Fitness Sports!</string>
     <string name="APP_login_error">Incorrect email or password</string>
 
-    <string name="APP_register_email_validation">The email entered is registered</string>
-    <string name="APP_register_equal_password">Both passwords must match</string>
-    <string name="APP_register_error">Error registering new user. Please try again</string>
-    <string name="APP_register_success">Successful registration. Welcome to Fitness Sports!</string>
-
-    <string name="CLIENT_register_error">The DNI entered is registered</string>
     <string name="CLIENT_dni_validation">The DNI entered is not valid</string>
     <string name="CLIENT_name_validation">Name and Surname can only contain letters and spaces</string>
     <string name="CLIENT_street_number_validation">Street Number can only contain numbers</string>
@@ -27,6 +27,8 @@
     <string name="APP_description_stepper_one">First Step of RegisterClient Form</string>
     <string name="APP_description_stepper_two">Second Step of RegisterClient Form</string>
     <string name="APP_description_stepper_three">Third Step of RegisterClient Form</string>
+    <string name="APP_description_edit_activity">Edit Activity</string>
+    <string name="APP_description_delete_activity">Delete Activity</string>
 
     <string name="FOOTER_content" translatable="false">2025 - Mobile Application Development - IFTS N°29</string>
 
@@ -36,6 +38,7 @@
     <string name="FORM_back">Back</string>
     <string name="FORM_next">Next</string>
     <string name="FORM_email">Send E-mail</string>
+    <string name="FORM_clear">Clear</string>
 
     <string name="FORM_user">Email:</string>
     <string name="FORM_password">Password:</string>
@@ -43,6 +46,7 @@
 
     <string name="FORM_class_name">Activity:</string>
     <string name="FORM_class_value">Value ($):</string>
+    <string name="FORM_class_list">Activities</string>
 
     <string name="FORM_client_fitness_certificate">¿Fitness Certificate?</string>
     <string name="FORM_client_dni">DNI:</string>
@@ -56,6 +60,16 @@
     <string name="FORM_client_member">Member</string>
     <string name="FORM_client_client">Client</string>
 
+    <string name="ACTIVITY_register">Register</string>
+    <string name="ACTIVITY_update">Update</string>
+    <string name="ACTIVITY_delete_success">Activity successfully eliminated</string>
+    <string name="ACTIVITY_delete_error">Error deleting activity</string>
+    <string name="ACTIVITY_id_missing_error">Error: the activity was not found</string>
+    <string name="ACTIVITY_update_success">The activity was successfully updated</string>
+    <string name="ACTIVITY_update_error">Error updating activity</string>
+    <string name="ACTIVITY_value_validation">Value can only contain numbers</string>
+    <string name="FORMAT_activity_price">Value: $%d</string>
+
     <string name="FORM_payment_monthly_plan">Monthly Plan:</string>
     <string name="FORM_payment_type">Payment Type:</string>
     <string name="FORM_payment_three_payments">Quarterly (3)</string>
@@ -64,9 +78,11 @@
 
     <string name="CARD_client">Register \nClient</string>
     <string name="CARD_payment">Register \nPayment</string>
-    <string name="CARD_activity">Register \nActivity</string>
+    <string name="CARD_activity">Manage \nActivities</string>
     <string name="CARD_id_card">View ID \nCard</string>
     <string name="CARD_pending_payment">Pending \nPayments</string>
+
+    <string name="CLIENT_full_name">%1$s %2$s</string>
 
     <string name="VOUCHER_plan">Plan:</string>
     <string name="VOUCHER_year">Year:</string>

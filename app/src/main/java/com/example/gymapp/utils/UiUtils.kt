@@ -2,6 +2,7 @@ package com.example.gymapp.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,4 +46,20 @@ fun showCustomSnackbar(context: Context, messageResId: Int, type: SnackbarType) 
     snackbarLayout.addView(customView, 0)
 
     snackbar.show()
+}
+
+/**
+ * Auxiliary function to handle the extraction and display of messages from an Intent.
+ * @param context The context of the calling activity
+ * @param intent The Intent that can contain the message.
+ * @param messageKey The key of the extra containing the ID of the message string resource.
+ */
+fun handleIncomingMessage(context: Context, intent: Intent, messageKey: String) {
+    if (intent.hasExtra(messageKey)) {
+        val messageResId = intent.getIntExtra(messageKey, 0)
+        if (messageResId != 0) {
+            showCustomSnackbar(context, messageResId, SnackbarType.SUCCESS)
+        }
+        intent.removeExtra(messageKey)
+    }
 }

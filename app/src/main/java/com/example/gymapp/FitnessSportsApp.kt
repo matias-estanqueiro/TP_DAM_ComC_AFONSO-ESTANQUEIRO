@@ -2,6 +2,7 @@ package com.example.gymapp
 
 import android.app.Application
 import android.database.sqlite.SQLiteDatabase
+import com.example.gymapp.data.DaoActivity
 import com.example.gymapp.data.FitnessSportsDatabase
 import com.example.gymapp.data.DaoUser
 import com.example.gymapp.data.DaoClient
@@ -17,12 +18,16 @@ class FitnessSportsApp: Application() {
 
     private lateinit var _daoUser: DaoUser
     private lateinit var _daoClient : DaoClient
+    private lateinit var _daoActivity : DaoActivity
 
     val daoUser: DaoUser
         get() = _daoUser
 
     val daoClient : DaoClient
         get() = _daoClient
+
+    val daoActivity : DaoActivity
+        get() = _daoActivity
 
     private val applicationScope = CoroutineScope(Dispatchers.IO)
 
@@ -35,6 +40,7 @@ class FitnessSportsApp: Application() {
 
             _daoUser = DaoUser(_dbWrite, _dbRead)
             _daoClient = DaoClient(_dbWrite, _dbRead)
+            _daoActivity = DaoActivity(_dbWrite, _dbRead)
         }
     }
 }

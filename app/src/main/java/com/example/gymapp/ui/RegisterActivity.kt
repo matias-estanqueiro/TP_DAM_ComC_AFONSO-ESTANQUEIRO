@@ -23,7 +23,7 @@ import kotlinx.coroutines.withContext
 
 import com.example.gymapp.utils.setupNavigation
 import com.example.gymapp.utils.showCustomSnackbar
-import com.example.gymapp.utils.RegistrationResult
+import com.example.gymapp.utils.ActionResult
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var userDao: DaoUser
@@ -83,25 +83,26 @@ class RegisterActivity : AppCompatActivity() {
 
             val hashedPassword = encryptPassword(registerPass)
             CoroutineScope(Dispatchers.IO).launch {
-                val registrationResult = userDao.registerUser(registerEmail, hashedPassword)
+                val actionResult = userDao.registerUser(registerEmail, hashedPassword)
                 withContext(Dispatchers.Main) {
-                    when (registrationResult) {
-                        RegistrationResult.SUCCESS -> {
+                    when (actionResult) {
+                        ActionResult.SUCCESS -> {
                             val intent = Intent(this@RegisterActivity, DashboardActivity::class.java).apply {
-                                putExtra(REGISTER_SUCCESS_MESSAGE, R.string.APP_register_success)
+                                putExtra(REGISTER_SUCCESS_MESSAGE, actionResult.messageResId)
                             }
                             startActivity(intent)
                             finish()
                         }
-                        RegistrationResult.EMAIL_EXISTS -> {
-                            showCustomSnackbar(this@RegisterActivity, registrationResult.messageResId, SnackbarType.ERROR)
+                        ActionResult.ERROR -> {
+                            showCustomSnackbar(this@RegisterActivity, actionResult.messageResId, SnackbarType.ERROR)
                             return@withContext
                         }
-                        RegistrationResult.DB_ERROR -> {
-                            showCustomSnackbar(this@RegisterActivity, registrationResult.messageResId, SnackbarType.ERROR)
+                        ActionResult.DATA_EXISTS -> {
+                            showCustomSnackbar(this@RegisterActivity, actionResult.messageResId, SnackbarType.ERROR)
                             return@withContext
                         }
-                        RegistrationResult.DNI_EXISTS -> {
+                        ActionResult.NOT_FOUND -> {
+                            showCustomSnackbar(this@RegisterActivity, actionResult.messageResId, SnackbarType.ERROR)
                             return@withContext
                         }
                     }

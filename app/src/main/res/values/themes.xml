@@ -32,6 +32,10 @@
         <item name="stepper_form_one">@drawable/img_stepper_page_one_light</item>
         <item name="stepper_form_two">@drawable/img_stepper_page_two_light</item>
         <item name="stepper_form_three">@drawable/img_stepper_page_three_light</item>
+
+        <!-- Activities -->
+        <item name="edit_activity">@drawable/ic_edit_activity_light</item>
+        <item name="delete_activity">@drawable/ic_remove_activity_light</item>
     </style>
     <style name="Theme.GymApp" parent="Base.Theme.GymApp" />
 </resources>

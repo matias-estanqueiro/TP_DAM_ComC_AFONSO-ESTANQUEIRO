@@ -16,6 +16,7 @@ import android.widget.EditText
 import com.example.gymapp.R
 import com.example.gymapp.data.DtClient
 import com.example.gymapp.utils.SnackbarType
+import com.example.gymapp.utils.handleIncomingMessage
 import com.example.gymapp.utils.isValidDNI
 import com.example.gymapp.utils.isValidLettersAndSpaces
 import com.example.gymapp.utils.showCustomSnackbar
@@ -51,6 +52,9 @@ class RegisterClientFirstActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val incomingIntent = intent
+        handleIncomingMessage(this, incomingIntent,  RegisterClientThreeActivity.REGISTER_SUCCESS_MESSAGE)
 
         if (savedInstanceState != null) {
             currentClient = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

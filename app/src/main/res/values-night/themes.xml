@@ -32,5 +32,9 @@
         <item name="stepper_form_one">@drawable/img_stepper_page_one_dark</item>
         <item name="stepper_form_two">@drawable/img_stepper_page_two_dark</item>
         <item name="stepper_form_three">@drawable/img_stepper_page_three_dark</item>
+
+        <!-- Activities -->
+        <item name="edit_activity">@drawable/ic_edit_activity_dark</item>
+        <item name="delete_activity">@drawable/ic_remove_activity_dark</item>
     </style>
 </resources>

@@ -29,9 +29,6 @@
             android:name=".ui.RegisterClientTwoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ViewIdActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.RegisterClassActivity"
             android:exported="false" />
         <activity
