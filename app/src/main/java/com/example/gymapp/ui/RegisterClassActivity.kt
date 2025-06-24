@@ -17,8 +17,8 @@ import android.widget.ListView
 import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.adapters.ActivityListAdapter
 import com.example.gymapp.adapters.OnActivityActionClickListener
-import com.example.gymapp.data.DaoActivity
-import com.example.gymapp.data.DtActivity
+import com.example.gymapp.data.dao.DaoActivity
+import com.example.gymapp.data.dt.DtActivity
 import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.isValidOnlyNumbers

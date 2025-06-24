@@ -2,10 +2,13 @@ package com.example.gymapp
 
 import android.app.Application
 import android.database.sqlite.SQLiteDatabase
-import com.example.gymapp.data.DaoActivity
+import com.example.gymapp.data.dao.DaoActivity
 import com.example.gymapp.data.FitnessSportsDatabase
-import com.example.gymapp.data.DaoUser
-import com.example.gymapp.data.DaoClient
+import com.example.gymapp.data.dao.DaoUser
+import com.example.gymapp.data.dao.DaoClient
+import com.example.gymapp.data.dao.DaoMembership
+import com.example.gymapp.data.dao.DaoPaymentType
+import com.example.gymapp.data.payments.DaoPayment
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +22,9 @@ class FitnessSportsApp: Application() {
     private lateinit var _daoUser: DaoUser
     private lateinit var _daoClient : DaoClient
     private lateinit var _daoActivity : DaoActivity
+    private lateinit var _daoPaymentType : DaoPaymentType
+    private lateinit var _daoPayment : DaoPayment
+    private lateinit var _daoMembership : DaoMembership
 
     val daoUser: DaoUser
         get() = _daoUser
@@ -28,6 +34,15 @@ class FitnessSportsApp: Application() {
 
     val daoActivity : DaoActivity
         get() = _daoActivity
+
+    val daoPaymentType : DaoPaymentType
+        get() = _daoPaymentType
+
+    val daoPayment : DaoPayment
+        get() = _daoPayment
+
+    val daoMembership : DaoMembership
+        get() = _daoMembership
 
     private val applicationScope = CoroutineScope(Dispatchers.IO)
 
@@ -41,6 +56,9 @@ class FitnessSportsApp: Application() {
             _daoUser = DaoUser(_dbWrite, _dbRead)
             _daoClient = DaoClient(_dbWrite, _dbRead)
             _daoActivity = DaoActivity(_dbWrite, _dbRead)
+            _daoPaymentType = DaoPaymentType(_dbWrite, _dbRead)
+            _daoPayment = DaoPayment(_dbWrite, _dbRead)
+            _daoMembership = DaoMembership(_dbWrite, _dbRead)
         }
     }
 }

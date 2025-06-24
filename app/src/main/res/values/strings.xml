@@ -68,13 +68,14 @@
     <string name="ACTIVITY_update_success">The activity was successfully updated</string>
     <string name="ACTIVITY_update_error">Error updating activity</string>
     <string name="ACTIVITY_value_validation">Value can only contain numbers</string>
-    <string name="FORMAT_activity_price">Value: $%d</string>
 
     <string name="FORM_payment_monthly_plan">Monthly Plan:</string>
     <string name="FORM_payment_type">Payment Type:</string>
+    <string name="FORM_payment_one_payment">One Month (1)</string>
     <string name="FORM_payment_three_payments">Quarterly (3)</string>
     <string name="FORM_payment_six_payments">Biannual (6)</string>
     <string name="FORM_payment_class">Activity:</string>
+    <string name="PAYMENT_TYPE_CREDIT_CARD">CREDIT CARD</string>
 
     <string name="CARD_client">Register \nClient</string>
     <string name="CARD_payment">Register \nPayment</string>
@@ -82,7 +83,15 @@
     <string name="CARD_id_card">View ID \nCard</string>
     <string name="CARD_pending_payment">Pending \nPayments</string>
 
-    <string name="CLIENT_full_name">%1$s %2$s</string>
+    <string name="FORMAT_full_name">%1$s %2$s</string>
+    <string name="FORMAT_price">Value: $%d</string>
+
+    <string name="VOUCHER_dni">DNI: %s</string>
+    <string name="VOUCHER_payment_day">Payment Day: %s</string>
+    <string name="VOUCHER_payment_method">Method: %s</string>
+    <string name="VOUCHER_installments">Installments: %d</string>
+    <string name="VOUCHER_membership_name">Plan: %s</string>
+    <string name="VOUCHER_activity_name">Activity: %s</string>
 
     <string name="VOUCHER_plan">Plan:</string>
     <string name="VOUCHER_year">Year:</string>

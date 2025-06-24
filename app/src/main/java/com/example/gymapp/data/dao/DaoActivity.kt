@@ -1,4 +1,4 @@
-package com.example.gymapp.data
+package com.example.gymapp.data.dao
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
@@ -8,6 +8,7 @@ import com.example.gymapp.data.DatabaseHelper.Companion.TABLE_ACTIVITIES
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_ACTIVITY_ID
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_ACTIVITY_NAME
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_ACTIVITY_PRICE
+import com.example.gymapp.data.dt.DtActivity
 
 
 class DaoActivity(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteDatabase) {
@@ -106,6 +107,32 @@ class DaoActivity(private val dbWrite: SQLiteDatabase, private val dbRead: SQLit
         } catch (e: Exception) {
             ActionResult.ERROR
         }
+    }
+
+    /**
+     * Retrieves the ID and price of an activity by its name.
+     *
+     * @param name The name of the activity.
+     * @return A Pair where first is price and second is ID if found, null otherwise.
+     */
+    fun getActivityPriceAndIdByName(name: String): Pair<Int, Int>? {
+        val cursor = dbRead.query(
+            TABLE_ACTIVITIES,
+            arrayOf(COLUMN_ACTIVITY_ID, COLUMN_ACTIVITY_PRICE),
+            "$COLUMN_ACTIVITY_NAME = ?",
+            arrayOf(name),
+            null, null, null
+        )
+
+        var activityInfo: Pair<Int, Int>? = null
+        cursor.use {
+            if (it.moveToFirst()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_ACTIVITY_ID))
+                val price = it.getInt(it.getColumnIndexOrThrow(COLUMN_ACTIVITY_PRICE))
+                activityInfo = Pair(price, id)
+            }
+        }
+        return activityInfo
     }
 
     private fun checkActivityNameExists(name: String): Boolean {

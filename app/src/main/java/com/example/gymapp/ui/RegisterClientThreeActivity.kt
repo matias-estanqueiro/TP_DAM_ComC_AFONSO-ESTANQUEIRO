@@ -18,8 +18,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.R
-import com.example.gymapp.data.DaoClient
-import com.example.gymapp.data.DtClient
+import com.example.gymapp.data.dao.DaoClient
+import com.example.gymapp.data.dt.DtClient
 import com.example.gymapp.ui.RegisterClientFirstActivity.Companion.CLIENT_DATA
 import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType

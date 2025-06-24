@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.MainActivity
 import com.example.gymapp.R
-import com.example.gymapp.data.DaoUser
+import com.example.gymapp.data.dao.DaoUser
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.encryptPassword
 import com.example.gymapp.utils.isValidEmail

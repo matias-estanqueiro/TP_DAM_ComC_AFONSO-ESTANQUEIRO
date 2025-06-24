@@ -1,8 +1,7 @@
-package com.example.gymapp.data
+package com.example.gymapp.data.dao
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import com.example.gymapp.utils.ActionResult
 
 import com.example.gymapp.data.DatabaseHelper.Companion.TABLE_CLIENTS
@@ -14,11 +13,13 @@ import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_NUMBER
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_DISTRICT
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_PHONE
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_EMAIL
+import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_ID
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_TYPE
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_CLIENT_PLAN
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_MEMBERSHIP_ID
 import com.example.gymapp.data.DatabaseHelper.Companion.COLUMN_MEMBERSHIP_NAME
 import com.example.gymapp.data.DatabaseHelper.Companion.TABLE_MEMBERSHIPS
+import com.example.gymapp.data.dt.DtClient
 
 
 class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteDatabase) {
@@ -61,7 +62,7 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
     }
 
     /**
-     * Retrieves a client's full details if they are a member (type = 1), based on their DNI.
+     * Retrieves a client's details if they are a member (type = 1), based on their DNI.
      * Designed to get data for a "member ID card" view.
      *
      * @param dni The DNI of the client to look up.
@@ -75,18 +76,19 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
 
         val query = """
             SELECT
-                c.${COLUMN_CLIENT_DNI},
-                c.${COLUMN_CLIENT_NAME} AS client_name_alias,
-                c.${COLUMN_CLIENT_SURNAME},
-                c.${COLUMN_CLIENT_TYPE},
-                c.${COLUMN_CLIENT_PLAN},
-                m.${COLUMN_MEMBERSHIP_NAME} AS plan_name_alias
+                c.$COLUMN_CLIENT_ID,
+                c.$COLUMN_CLIENT_DNI,
+                c.$COLUMN_CLIENT_NAME AS client_name_alias,
+                c.$COLUMN_CLIENT_SURNAME,
+                c.$COLUMN_CLIENT_TYPE,
+                c.$COLUMN_CLIENT_PLAN,
+                m.$COLUMN_MEMBERSHIP_NAME AS plan_name_alias
             FROM
                 $TABLE_CLIENTS AS c
             LEFT JOIN
-                $TABLE_MEMBERSHIPS AS m ON c.${COLUMN_CLIENT_PLAN} = m.${COLUMN_MEMBERSHIP_ID}
+                $TABLE_MEMBERSHIPS AS m ON c.$COLUMN_CLIENT_PLAN = m.$COLUMN_MEMBERSHIP_ID
             WHERE
-                c.${COLUMN_CLIENT_DNI} = ? AND c.${COLUMN_CLIENT_TYPE} = 1
+                c.$COLUMN_CLIENT_DNI = ? AND c.$COLUMN_CLIENT_TYPE = 1
         """.trimIndent()
 
         val cursor = dbRead.rawQuery(query, arrayOf(dni))
@@ -94,6 +96,7 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
         var memberClient: DtClient? = null
         cursor.use {
             if (it.moveToFirst()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_CLIENT_ID))
                 val foundDni = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_DNI))
                 val name = it.getString(it.getColumnIndexOrThrow("client_name_alias"))
                 val surname = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_SURNAME))
@@ -108,16 +111,60 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
                     null
                 }
                 memberClient = DtClient(
+                    id = id,
                     dni = foundDni,
                     name = name,
                     surname = surname,
                     plan = membershipId,
                     planName = planName
                 )
-                Log.d("memberClient", memberClient.toString())
             }
         }
         return memberClient
+    }
+
+    /**
+     * Retrieves a client's full details if they are a regular client (type = 0), based on their DNI.
+     * This function is useful for validating clients who are not members.
+     *
+     * @param dni The DNI of the client to look up.
+     * @return A [DtClient] object with its data if the client is found and is a regular client (type 0),
+     * otherwise returns null.
+     */
+    fun getClientByDni(dni: String): DtClient? {
+        if (checkClientIsMember(dni)) {
+            return null
+        }
+
+        val query = """
+            SELECT
+                $COLUMN_CLIENT_ID,
+                $COLUMN_CLIENT_DNI,
+                $COLUMN_CLIENT_NAME,
+                $COLUMN_CLIENT_SURNAME
+            FROM
+                $TABLE_CLIENTS
+            WHERE
+                $COLUMN_CLIENT_DNI = ?
+        """.trimIndent()
+
+        val cursor = dbRead.rawQuery(query, arrayOf(dni))
+
+        var regularClient: DtClient? = null
+        cursor.use {
+            if (it.moveToFirst()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_CLIENT_ID))
+                val foundDni = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_DNI))
+                val name = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_NAME))
+                val surname = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_SURNAME))
+                regularClient = DtClient(
+                    id = id,
+                    dni = foundDni,
+                    name = name,
+                    surname = surname)
+            }
+        }
+        return regularClient
     }
 
     /**
@@ -125,7 +172,7 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
      * @param dni The DNI to verify.
      * @return true if the DNI already exists, false otherwise.
      */
-    private fun checkClientDNI(dni: String): Boolean {
+    fun checkClientDNI(dni: String): Boolean {
         val cursor = dbRead.query(
             TABLE_CLIENTS,
             arrayOf(COLUMN_CLIENT_DNI),
@@ -138,6 +185,11 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
         return exists
     }
 
+    /**
+     * Verify if a client with the given email is already registered in the database.
+     * @param email The email to verify.
+     * @return true if the email already exists, false otherwise.
+     */
     private fun checkClientEmail(email: String): Boolean {
         val cursor = dbRead.query(
             TABLE_CLIENTS,

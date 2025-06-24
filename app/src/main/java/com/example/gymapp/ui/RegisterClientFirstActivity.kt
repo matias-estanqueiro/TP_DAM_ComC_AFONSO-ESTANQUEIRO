@@ -14,7 +14,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.example.gymapp.R
-import com.example.gymapp.data.DtClient
+import com.example.gymapp.data.dt.DtClient
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.handleIncomingMessage
 import com.example.gymapp.utils.isValidDNI

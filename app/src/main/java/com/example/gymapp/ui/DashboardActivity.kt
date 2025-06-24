@@ -1,17 +1,14 @@
 package com.example.gymapp.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gymapp.R
-import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.handleIncomingMessage
 
 import com.example.gymapp.utils.setupNavigation
-import com.example.gymapp.utils.showCustomSnackbar
 
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +25,7 @@ class DashboardActivity : AppCompatActivity() {
         val incomingIntent = intent
         handleIncomingMessage(this, incomingIntent, LoginActivity.LOGIN_SUCCESS_MESSAGE)
         handleIncomingMessage(this, incomingIntent, RegisterActivity.REGISTER_SUCCESS_MESSAGE)
+        handleIncomingMessage(this, incomingIntent, ViewPaymentVoucherActivity.PAYMENT_SUCCESS_MESSAGE)
 
 
         setupNavigation(findViewById(R.id.btnRegisterClient), RegisterClientFirstActivity::class.java)

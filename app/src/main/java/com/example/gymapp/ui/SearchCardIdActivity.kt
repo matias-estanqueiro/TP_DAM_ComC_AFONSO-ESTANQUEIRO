@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.R
-import com.example.gymapp.data.DaoClient
+import com.example.gymapp.data.dao.DaoClient
 import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.isValidOnlyNumbers
@@ -96,7 +96,7 @@ class SearchCardIdActivity : AppCompatActivity() {
                 if (memberToShow == null) {
                     showCustomSnackbar(this@SearchCardIdActivity, ActionResult.NOT_FOUND.messageResId, SnackbarType.ERROR)
                 } else {
-                    lblMemberName.text = getString(R.string.CLIENT_full_name, memberToShow.name, memberToShow.surname)
+                    lblMemberName.text = getString(R.string.FORMAT_full_name, memberToShow.name, memberToShow.surname)
                     lblMemberNumber.text = memberToShow.dni
                     lblMemberPlan.text = memberToShow.planName
                     val currentYear = Calendar.getInstance().get(Calendar.YEAR)

@@ -11,7 +11,7 @@ import com.example.gymapp.R
 import android.widget.EditText
 import android.widget.Button
 import com.example.gymapp.FitnessSportsApp
-import com.example.gymapp.data.DaoUser
+import com.example.gymapp.data.dao.DaoUser
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

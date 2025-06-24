@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.gymapp.R
-import com.example.gymapp.data.DtActivity
+import com.example.gymapp.data.dt.DtActivity
 
 /**
  * Interface to handle click events on the edit and delete buttons
@@ -52,7 +52,7 @@ class ActivityListAdapter(
             val btnDelete: ImageView = listItemView.findViewById(R.id.btnDelete)
 
             tvActivityName.text = currentActivity.name
-            tvActivityPrice.text = context.getString(R.string.FORMAT_activity_price, currentActivity.price)
+            tvActivityPrice.text = context.getString(R.string.FORMAT_price, currentActivity.price)
 
             btnEdit.setOnClickListener { listener.onEditActivity(currentActivity) }
             btnDelete.setOnClickListener { listener.onDeleteActivity(currentActivity) }

@@ -1,4 +1,4 @@
-package com.example.gymapp.data
+package com.example.gymapp.data.dao
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase

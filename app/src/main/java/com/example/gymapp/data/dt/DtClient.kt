@@ -1,10 +1,10 @@
-package com.example.gymapp.data
+package com.example.gymapp.data.dt
 
 import android.os.Parcel
 import android.os.Parcelable
 
 data class DtClient (
-    var dni: String? = null, var name: String? = null, var surname: String? = null, var street: String? = null,
+    val id: Int? = null, var dni: String? = null, var name: String? = null, var surname: String? = null, var street: String? = null,
     var streetNumber: String? = null, var district: String? = null, var phone: String? = null,
     var email: String? = null, var type: Int = 0, var plan: Int = 0, var planName: String? = null
 ) : Parcelable {
@@ -16,6 +16,7 @@ data class DtClient (
         this.planName = planName?.uppercase()
     }
     constructor(parcel: Parcel) : this(
+        if (parcel.readInt() == 1) parcel.readInt() else null,
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -30,6 +31,12 @@ data class DtClient (
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        if (id != null) {
+            parcel.writeInt(1)
+            parcel.writeInt(id)
+        } else {
+            parcel.writeInt(0)
+        }
         parcel.writeString(dni)
         parcel.writeString(name)
         parcel.writeString(surname)

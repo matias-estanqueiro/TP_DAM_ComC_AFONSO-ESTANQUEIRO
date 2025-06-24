@@ -12,7 +12,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // Database tables structure definitions
     companion object {
         private const val DATABASE_NAME = "fitnessSports.db"
-        private const val DATABASE_VERSION = 4
+        private const val DATABASE_VERSION = 8
 
         // Users Table
         const val TABLE_USERS = "users"
@@ -55,10 +55,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         // Membership Payments Table
         const val TABLE_MEMBERSHIPS_PAYMENTS = "payments_memberships"
         const val COLUMN_MEMBERSHIP_PAYMENT_ID = "id"
-        const val COLUMN_MEMBERSHIP_PAYMENT_AMOUNT = "amount"
         const val COLUMN_MEMBERSHIP_PAYMENT_MEMBERSHIP_ID = "membership_id"
         const val COLUMN_MEMBERSHIP_PAYMENT_METHOD_ID = "payment_method_id"
         const val COLUMN_MEMBERSHIP_PAYMENT_CLIENT_ID = "client_id"
+        const val COLUMN_MEMBERSHIP_PAYMENT_AMOUNT = "amount"
+        const val COLUMN_MEMBERSHIP_PAYMENT_DATE = "date"
+        const val COLUMN_MEMBERSHIP_PAYMENT_DUE_DATE = "due_date"
 
         // Activities Payments Table
         const val TABLE_ACTIVITIES_PAYMENTS = "payments_activities"
@@ -66,6 +68,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         const val COLUMN_ACTIVITY_PAYMENT_ACTIVITY_ID = "activity_id"
         const val COLUMN_ACTIVITY_PAYMENT_METHOD_ID = "payment_method_id"
         const val COLUMN_ACTIVITY_PAYMENT_CLIENT_ID = "client_id"
+        const val COLUMN_ACTIVITY_PAYMENT_DATE = "date"
 
     }
 
@@ -118,10 +121,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val createPaymentsMembershipsTable = """
             CREATE TABLE $TABLE_MEMBERSHIPS_PAYMENTS (
                 $COLUMN_MEMBERSHIP_PAYMENT_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $COLUMN_MEMBERSHIP_PAYMENT_AMOUNT REAL NOT NULL,
                 $COLUMN_MEMBERSHIP_PAYMENT_MEMBERSHIP_ID INTEGER NOT NULL,
                 $COLUMN_MEMBERSHIP_PAYMENT_METHOD_ID INTEGER NOT NULL,
                 $COLUMN_MEMBERSHIP_PAYMENT_CLIENT_ID INTEGER NOT NULL,
+                $COLUMN_MEMBERSHIP_PAYMENT_AMOUNT INTEGER NOT NULL,
+                $COLUMN_MEMBERSHIP_PAYMENT_DATE DATE NOT NULL,
+                $COLUMN_MEMBERSHIP_PAYMENT_DUE_DATE DATE NOT NULL,
                 FOREIGN KEY($COLUMN_MEMBERSHIP_PAYMENT_MEMBERSHIP_ID) REFERENCES $TABLE_MEMBERSHIPS($COLUMN_MEMBERSHIP_ID),
                 FOREIGN KEY($COLUMN_MEMBERSHIP_PAYMENT_METHOD_ID) REFERENCES $TABLE_PAYMENTS_METHODS($COLUMN_PAYMENT_METHOD_ID),
                 FOREIGN KEY($COLUMN_MEMBERSHIP_PAYMENT_CLIENT_ID) REFERENCES $TABLE_CLIENTS($COLUMN_CLIENT_ID)
@@ -134,6 +139,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 $COLUMN_ACTIVITY_PAYMENT_ACTIVITY_ID INTEGER NOT NULL,
                 $COLUMN_ACTIVITY_PAYMENT_METHOD_ID INTEGER NOT NULL,
                 $COLUMN_ACTIVITY_PAYMENT_CLIENT_ID INTEGER NOT NULL,
+                $COLUMN_ACTIVITY_PAYMENT_DATE DATE NOT NULL,
                 FOREIGN KEY($COLUMN_ACTIVITY_PAYMENT_ACTIVITY_ID) REFERENCES $TABLE_ACTIVITIES($COLUMN_ACTIVITY_ID),
                 FOREIGN KEY($COLUMN_ACTIVITY_PAYMENT_METHOD_ID) REFERENCES $TABLE_PAYMENTS_METHODS($COLUMN_PAYMENT_METHOD_ID),
                 FOREIGN KEY($COLUMN_ACTIVITY_PAYMENT_CLIENT_ID) REFERENCES $TABLE_CLIENTS($COLUMN_CLIENT_ID)

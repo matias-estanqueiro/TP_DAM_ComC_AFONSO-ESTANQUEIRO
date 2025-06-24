@@ -1,6 +1,6 @@
-package com.example.gymapp.data
+package com.example.gymapp.data.dt
 
-data class DtActivity(
+data class DtMembership(
     val id: Int? = null,
     var name: String,
     var price: Int
