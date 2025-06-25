@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.users
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.MainActivity
 import com.example.gymapp.R
 import com.example.gymapp.data.dao.DaoUser
+import com.example.gymapp.ui.DashboardActivity
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.encryptPassword
 import com.example.gymapp.utils.isValidEmail

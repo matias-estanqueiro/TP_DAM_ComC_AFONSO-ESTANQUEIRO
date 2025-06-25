@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.clients
 
 import android.content.Intent
 import android.os.Build
@@ -20,7 +20,7 @@ import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.R
 import com.example.gymapp.data.dao.DaoClient
 import com.example.gymapp.data.dt.DtClient
-import com.example.gymapp.ui.RegisterClientFirstActivity.Companion.CLIENT_DATA
+import com.example.gymapp.ui.clients.RegisterClientFirstActivity.Companion.CLIENT_DATA
 import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.showCustomSnackbar

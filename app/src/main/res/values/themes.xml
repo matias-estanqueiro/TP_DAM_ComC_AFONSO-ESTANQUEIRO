@@ -36,6 +36,9 @@
         <!-- Activities -->
         <item name="edit_activity">@drawable/ic_edit_activity_light</item>
         <item name="delete_activity">@drawable/ic_remove_activity_light</item>
+
+        <!-- Pending Payments -->
+        <item name="pending_payment">@drawable/ic_payment_light</item>
     </style>
     <style name="Theme.GymApp" parent="Base.Theme.GymApp" />
 </resources>

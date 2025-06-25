@@ -12,7 +12,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // Database tables structure definitions
     companion object {
         private const val DATABASE_NAME = "fitnessSports.db"
-        private const val DATABASE_VERSION = 8
+        private const val DATABASE_VERSION = 9
 
         // Users Table
         const val TABLE_USERS = "users"
@@ -205,33 +205,70 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
 
         // Clients & Members
-        val clientData = ContentValues().apply {
-            put(COLUMN_CLIENT_DNI, "11111111")
-            put(COLUMN_CLIENT_NAME, "JOE")
-            put(COLUMN_CLIENT_SURNAME, "KINGSLY")
-            put(COLUMN_CLIENT_STREET, "LONESOME ROAD")
-            put(COLUMN_CLIENT_NUMBER, "4105")
-            put(COLUMN_CLIENT_DISTRICT, "PENNSYLVANIA")
-            put(COLUMN_CLIENT_PHONE, "5703588965")
-            put(COLUMN_CLIENT_EMAIL, "john_kingsly@gmail.com")
-            put(COLUMN_CLIENT_TYPE, 0)
-            put(COLUMN_CLIENT_PLAN, 1)
+        val clientsList = mutableListOf<ContentValues>()
+
+        val names = listOf("Martín", "Sofía", "Diego", "Valeria", "Pablo", "Laura", "Enzo", "Camila", "Facundo", "Andrea")
+        val surnames = listOf("Gómez", "Pérez", "Rodríguez", "Fernández", "Díaz", "Castro", "Ruiz", "Silva", "Pereyra", "Núñez")
+        val streets = listOf("Av. Corrientes", "Calle Falsa", "Ruta 3", "Libertad", "San Martín", "Belgrano", "Las Heras", "Córdoba", "Entre Ríos", "9 de Julio")
+        val districts = listOf("CABA", "Córdoba", "Buenos Aires", "Rosario", "Mendoza", "La Plata", "Salta", "Tucumán", "Corrientes", "Mar del Plata")
+        val phonePrefixes = listOf("11", "221", "341", "351", "261", "387", "381", "379")
+        val dniBaseMember = 20000000
+        val dniBaseClient = 30000000
+
+        // Members
+        for (i in 0 until 5) {
+            val dni = (dniBaseMember + i + 1).toString() // DNI único
+            val plan = (2..5).random() // Plan aleatorio entre 2 y 5
+            val name = names[i]
+            val surname = surnames[i]
+            val street = streets[i]
+            val number = (100 + i * 100).toString() // Números de calle ascendentes
+            val district = districts[i]
+            val phone = phonePrefixes.random() + (1000000 + i * 12345).toString()
+            val email = "${name.lowercase()}.${surname.lowercase()}@member.com.ar"
+
+            clientsList.add(ContentValues().apply {
+                put(COLUMN_CLIENT_DNI, dni)
+                put(COLUMN_CLIENT_NAME, name)
+                put(COLUMN_CLIENT_SURNAME, surname)
+                put(COLUMN_CLIENT_STREET, street)
+                put(COLUMN_CLIENT_NUMBER, number)
+                put(COLUMN_CLIENT_DISTRICT, district)
+                put(COLUMN_CLIENT_PHONE, phone)
+                put(COLUMN_CLIENT_EMAIL, email)
+                put(COLUMN_CLIENT_TYPE, 1)
+                put(COLUMN_CLIENT_PLAN, plan)
+            })
         }
 
-        val memberData = ContentValues().apply {
-            put(COLUMN_CLIENT_DNI, "22222222")
-            put(COLUMN_CLIENT_NAME, "COLVER")
-            put(COLUMN_CLIENT_SURNAME, "RING")
-            put(COLUMN_CLIENT_STREET, "PARRISH AVENUE")
-            put(COLUMN_CLIENT_NUMBER, "3858")
-            put(COLUMN_CLIENT_DISTRICT, "ILLINOIS")
-            put(COLUMN_CLIENT_PHONE, "8308470377")
-            put(COLUMN_CLIENT_EMAIL, "colver_ring@gmail.com")
-            put(COLUMN_CLIENT_TYPE, 1)
-            put(COLUMN_CLIENT_PLAN, 5)
+        // Clients
+        for (i in 5 until 10) {
+            val dni = (dniBaseClient + i + 1).toString()
+            val name = names[i]
+            val surname = surnames[i]
+            val street = streets[i]
+            val number = (2000 + i * 50).toString()
+            val district = districts[i]
+            val phone = phonePrefixes.random() + (2000000 + i * 67890).toString()
+            val email = "${name.lowercase()}.${surname.lowercase()}@client.com.ar"
+
+            clientsList.add(ContentValues().apply {
+                put(COLUMN_CLIENT_DNI, dni)
+                put(COLUMN_CLIENT_NAME, name)
+                put(COLUMN_CLIENT_SURNAME, surname)
+                put(COLUMN_CLIENT_STREET, street)
+                put(COLUMN_CLIENT_NUMBER, number)
+                put(COLUMN_CLIENT_DISTRICT, district)
+                put(COLUMN_CLIENT_PHONE, phone)
+                put(COLUMN_CLIENT_EMAIL, email)
+                put(COLUMN_CLIENT_TYPE, 0)
+                put(COLUMN_CLIENT_PLAN, 1)
+            })
         }
-        db.insert(TABLE_CLIENTS, null, clientData)
-        db.insert(TABLE_CLIENTS, null, memberData)
+
+        for (client in clientsList) {
+            db.insert(TABLE_CLIENTS, null, client)
+        }
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

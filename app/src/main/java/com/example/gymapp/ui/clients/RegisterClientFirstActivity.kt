@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.clients
 
 import android.content.Intent
 import android.os.Build
@@ -54,7 +54,9 @@ class RegisterClientFirstActivity : AppCompatActivity() {
         }
 
         val incomingIntent = intent
-        handleIncomingMessage(this, incomingIntent,  RegisterClientThreeActivity.REGISTER_SUCCESS_MESSAGE)
+        handleIncomingMessage(this, incomingIntent,
+            RegisterClientThreeActivity.REGISTER_SUCCESS_MESSAGE
+        )
 
         if (savedInstanceState != null) {
             currentClient = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

@@ -85,6 +85,7 @@
 
     <string name="FORMAT_full_name">%1$s %2$s</string>
     <string name="FORMAT_price">Value: $%d</string>
+    <string name="FORMAT_pending_payment">Pending payment for: %s</string>
 
     <string name="VOUCHER_dni">DNI: %s</string>
     <string name="VOUCHER_payment_day">Payment Day: %s</string>

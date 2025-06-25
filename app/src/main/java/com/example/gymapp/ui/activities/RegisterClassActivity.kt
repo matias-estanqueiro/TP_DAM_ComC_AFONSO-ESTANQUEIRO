@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

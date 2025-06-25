@@ -36,5 +36,8 @@
         <!-- Activities -->
         <item name="edit_activity">@drawable/ic_edit_activity_dark</item>
         <item name="delete_activity">@drawable/ic_remove_activity_dark</item>
+
+        <!-- Pending Payments -->
+        <item name="pending_payment">@drawable/ic_payment_dark</item>
     </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.payments
 
 
 import android.content.Intent
@@ -16,8 +16,9 @@ import com.example.gymapp.data.payments.DaoPayment
 import com.example.gymapp.data.payments.DtPayment
 import com.example.gymapp.data.payments.DtPaymentActivity
 import com.example.gymapp.data.payments.DtPaymentMembership
-import com.example.gymapp.ui.RegisterClientThreeActivity.Companion.REGISTER_SUCCESS_MESSAGE
-import com.example.gymapp.ui.RegisterPaymentActivity.Companion.PAYMENT_DATA
+import com.example.gymapp.ui.DashboardActivity
+import com.example.gymapp.ui.clients.RegisterClientThreeActivity.Companion.REGISTER_SUCCESS_MESSAGE
+import com.example.gymapp.ui.payments.RegisterPaymentActivity.Companion.PAYMENT_DATA
 import com.example.gymapp.utils.ActionResult
 import com.example.gymapp.utils.SnackbarType
 import com.example.gymapp.utils.setupNavigation

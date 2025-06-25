@@ -17,4 +17,6 @@
 
     <attr name="edit_activity" format="reference" />
     <attr name="delete_activity" format="reference" />
+
+    <attr name="pending_payment" format="reference" />
 </resources>

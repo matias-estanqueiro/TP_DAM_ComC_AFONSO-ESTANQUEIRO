@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.clients
 
 import android.os.Bundle
 import android.view.View

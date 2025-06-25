@@ -6,6 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gymapp.R
+import com.example.gymapp.ui.activities.RegisterClassActivity
+import com.example.gymapp.ui.clients.RegisterClientFirstActivity
+import com.example.gymapp.ui.clients.SearchCardIdActivity
+import com.example.gymapp.ui.payments.RegisterPaymentActivity
+import com.example.gymapp.ui.payments.ViewPaymentVoucherActivity
+import com.example.gymapp.ui.payments.ViewPendingPaymentsActivity
+import com.example.gymapp.ui.users.LoginActivity
+import com.example.gymapp.ui.users.RegisterActivity
 import com.example.gymapp.utils.handleIncomingMessage
 
 import com.example.gymapp.utils.setupNavigation

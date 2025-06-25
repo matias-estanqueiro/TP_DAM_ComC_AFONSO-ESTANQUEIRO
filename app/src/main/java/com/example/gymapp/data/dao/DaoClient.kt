@@ -168,6 +168,58 @@ class DaoClient(private val dbWrite: SQLiteDatabase, private val dbRead: SQLiteD
     }
 
     /**
+     * Retrieves all clients from the database that are classified as members (type = 1).
+     *
+     * @return A list of [DtClient] objects representing the members.
+     */
+    fun getAllMembers(): List<DtClient> {
+            val membersList = mutableListOf<DtClient>()
+            val query = """
+            SELECT
+                c.$COLUMN_CLIENT_ID,
+                c.$COLUMN_CLIENT_DNI,
+                c.$COLUMN_CLIENT_NAME AS client_name_alias,
+                c.$COLUMN_CLIENT_SURNAME,
+                c.$COLUMN_CLIENT_TYPE,
+                c.$COLUMN_CLIENT_PLAN,
+                m.$COLUMN_MEMBERSHIP_NAME AS plan_name_alias
+            FROM
+                $TABLE_CLIENTS AS c
+            LEFT JOIN
+                $TABLE_MEMBERSHIPS AS m ON c.$COLUMN_CLIENT_PLAN = m.$COLUMN_MEMBERSHIP_ID
+            WHERE
+               c.$COLUMN_CLIENT_TYPE = 1
+        """.trimIndent()
+
+        val cursor = dbRead.rawQuery(query, null)
+
+        cursor.use {
+            while (it.moveToNext()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_CLIENT_ID))
+                val dni = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_DNI))
+                val name = it.getString(it.getColumnIndexOrThrow("client_name_alias"))
+                val surname = it.getString(it.getColumnIndexOrThrow(COLUMN_CLIENT_SURNAME))
+                val planName = if (!it.isNull(it.getColumnIndexOrThrow("plan_name_alias"))) {
+                    it.getString(it.getColumnIndexOrThrow("plan_name_alias"))
+                } else {
+                    null
+                }
+
+                membersList.add(
+                    DtClient(
+                        id = id,
+                        dni = dni,
+                        name = name,
+                        surname = surname,
+                        planName = planName
+                    )
+                )
+            }
+        }
+        return membersList
+    }
+
+    /**
      * Verify if a DNI is already registered in the database.
      * @param dni The DNI to verify.
      * @return true if the DNI already exists, false otherwise.

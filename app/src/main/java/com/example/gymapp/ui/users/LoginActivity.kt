@@ -1,4 +1,4 @@
-package com.example.gymapp.ui
+package com.example.gymapp.ui.users
 
 import android.os.Bundle
 import android.content.Intent
@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.Button
 import com.example.gymapp.FitnessSportsApp
 import com.example.gymapp.data.dao.DaoUser
+import com.example.gymapp.ui.DashboardActivity
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
