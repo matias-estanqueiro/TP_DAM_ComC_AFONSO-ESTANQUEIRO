@@ -132,6 +132,33 @@
             android:textColor="?attr/android:textColor" />
     </RadioGroup>
 
+    <!-- Membership Plan -->
+    <TextView
+        android:id="@+id/lblMembershipType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:text="@string/FORM_client_membership"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:labelFor="@id/inpClientEmail" />
+
+    <Spinner
+        android:id="@+id/spnMembershipType"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/input_underline"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp" />
+
+    <View
+        android:id="@+id/vwMemberShipType"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/input_underline"
+        android:layout_marginHorizontal="32dp" />
+
     <!-- Flex Space (this will push the buttons down) -->
     <Space
         android:layout_width="match_parent"

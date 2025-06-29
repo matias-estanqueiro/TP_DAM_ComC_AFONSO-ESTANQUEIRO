@@ -59,6 +59,7 @@
     <string name="FORM_client_email">E-mail:</string>
     <string name="FORM_client_member">Member</string>
     <string name="FORM_client_client">Client</string>
+    <string name="FORM_client_membership">Membership Plan:</string>
 
     <string name="ACTIVITY_register">Register</string>
     <string name="ACTIVITY_update">Update</string>

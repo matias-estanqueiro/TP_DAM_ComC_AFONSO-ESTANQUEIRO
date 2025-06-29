@@ -12,7 +12,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // Database tables structure definitions
     companion object {
         private const val DATABASE_NAME = "fitnessSports.db"
-        private const val DATABASE_VERSION = 9
+        private const val DATABASE_VERSION = 12
 
         // Users Table
         const val TABLE_USERS = "users"

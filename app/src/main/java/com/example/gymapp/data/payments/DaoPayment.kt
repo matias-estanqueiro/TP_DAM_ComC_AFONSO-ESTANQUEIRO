@@ -147,7 +147,7 @@ class DaoPayment(private val dbWrite: SQLiteDatabase, private val dbRead: SQLite
             }
 
             if (isPending) {
-                pendingPaymentsList.add(DtPendingPayment(client, pendingMonthString ?: "Mes desconocido"))
+                pendingPaymentsList.add(DtPendingPayment(client, pendingMonthString ?: "Undefined"))
             }
         }
         return pendingPaymentsList
