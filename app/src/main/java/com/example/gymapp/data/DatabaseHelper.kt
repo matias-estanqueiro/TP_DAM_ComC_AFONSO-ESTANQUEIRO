@@ -12,7 +12,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     // Database tables structure definitions
     companion object {
         private const val DATABASE_NAME = "fitnessSports.db"
-        private const val DATABASE_VERSION = 12
+        private const val DATABASE_VERSION = 19
 
         // Users Table
         const val TABLE_USERS = "users"
@@ -207,22 +207,22 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         // Clients & Members
         val clientsList = mutableListOf<ContentValues>()
 
-        val names = listOf("Martín", "Sofía", "Diego", "Valeria", "Pablo", "Laura", "Enzo", "Camila", "Facundo", "Andrea")
-        val surnames = listOf("Gómez", "Pérez", "Rodríguez", "Fernández", "Díaz", "Castro", "Ruiz", "Silva", "Pereyra", "Núñez")
-        val streets = listOf("Av. Corrientes", "Calle Falsa", "Ruta 3", "Libertad", "San Martín", "Belgrano", "Las Heras", "Córdoba", "Entre Ríos", "9 de Julio")
-        val districts = listOf("CABA", "Córdoba", "Buenos Aires", "Rosario", "Mendoza", "La Plata", "Salta", "Tucumán", "Corrientes", "Mar del Plata")
+        val names = listOf("MARTIN", "SOFIA", "DIEGO", "VALERIA", "PABLO", "LAURA", "ENZO", "CAMILA", "FACUNDO", "ANDREA")
+        val surnames = listOf("GOMEZ", "PEREZ", "RODRIGUEZ", "FERNANDEZ", "DIAZ", "CASTRO", "RUIZ", "SILVA", "PEREYRA", "NUNEZ")
+        val streets = listOf("AVENIDA CORRIENTES", "CALLE FALSA", "RUTA 3", "LIBERTAD", "SAN MARTIN", "BELGRANO", "LAS HERAS", "CORDOBA", "ENTRE RIOS", "9 DE JULIO")
+        val districts = listOf("CABA", "CORDOBA", "BUENOS AIRES", "ROSARIO", "MENDOZA", "LA PLATA", "SALTA", "TUCUMAN", "CORRIENTES", "MAR DEL PLATA")
         val phonePrefixes = listOf("11", "221", "341", "351", "261", "387", "381", "379")
         val dniBaseMember = 20000000
         val dniBaseClient = 30000000
 
         // Members
         for (i in 0 until 5) {
-            val dni = (dniBaseMember + i + 1).toString() // DNI único
-            val plan = (2..5).random() // Plan aleatorio entre 2 y 5
+            val dni = (dniBaseMember + i + 1).toString()
+            val plan = (2..5).random()
             val name = names[i]
             val surname = surnames[i]
             val street = streets[i]
-            val number = (100 + i * 100).toString() // Números de calle ascendentes
+            val number = (100 + i * 100).toString()
             val district = districts[i]
             val phone = phonePrefixes.random() + (1000000 + i * 12345).toString()
             val email = "${name.lowercase()}.${surname.lowercase()}@member.com.ar"
